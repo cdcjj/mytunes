@@ -11,6 +11,7 @@ var PlayerView = Backbone.View.extend({
   setSong: function(song) {
     this.model = song;
     this.render();
+    // called in AppView to set new song.
   },
 
   render: function() {
