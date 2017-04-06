@@ -42,12 +42,32 @@ describe('Songs', function() {
       expect(songs.at(0).get('title')).to.equal('Never Gonna Mock You Up');
       expect(songs.at(1).get('artist')).to.equal('BittyBacon');
     });
+
+  });
+  describe('ensuring fetched data is correct', function() { 
     
-    it('has to retrieve data from server as an Object', function() {
-      songs = new Songs();
-      console.log(songs.get('retrieve'));
-      // expect(model.trigger).to.have.been.calledWith('ended', model);
+    beforeEach(function(done) {
+      ownSongs = new Songs();
+
+      // Mocha only runs subsequent lines of code when "done" has been called.
+      // this is not a efficient way to wait for server to respond but good for this sprint.
+      setTimeout(function() {
+        done();
+      }, 1000);
     });
 
+    it('has to retrieve data from server as an array of objects', function() {      
+      expect(ownSongs.models).to.be.an('array');
+      ownSongs.models.forEach(function(aSong) {
+        expect(aSong).to.be.an('object');
+      });
+    });
+
+    it('has to retrieve songs ONLY by Aaliyah', function() {
+      ownSongs.models.forEach(function(aSong) {
+        var fetchedArtist = aSong.get('artist');
+        expect(fetchedArtist).to.equal('Aaliyah');
+      });
+    });
   });
 });
