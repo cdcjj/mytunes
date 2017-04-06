@@ -9,10 +9,9 @@ var PlayerView = Backbone.View.extend({
   },
 
   events: {
-    'ended': function() { /// <--- DOESN"T WORK FIX!!!.
-      this.trigger('ended', this);
+    'ended': function() { 
+      this.model.trigger('ended', this);
     }
-    // listen for audio to be "ended";
   },
 
   setSong: function(song) {

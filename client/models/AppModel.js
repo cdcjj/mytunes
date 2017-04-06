@@ -17,6 +17,9 @@ var AppModel = Backbone.Model.extend({
       this.set('currentSong', song);
       // this will trigger "change" event that AppView listens for to change current Song user sees
     }, this);
+    params.library.on('enqueue', function(song) {
+      this.get('songQueue').add(song);
+    }, this);
   }
 
 });

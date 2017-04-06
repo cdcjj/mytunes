@@ -4,8 +4,18 @@ var SongQueueView = Backbone.View.extend({
 
   initialize: function() {
     this.render();
-  },
+    // console.log(params);
+    
+    this.collection.on('add', function(model) {
+      this.render();
+    }, this);
 
+    this.collection.on('remove', function(model) {
+      this.render();
+    }, this);
+
+  },
+  // listens for events from DOM
   events: {
     'add': function() {
       this.render();
@@ -14,6 +24,7 @@ var SongQueueView = Backbone.View.extend({
       this.render();
     }
   },
+
 
   render: function() {
     this.$el.children().detach();
