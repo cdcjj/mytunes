@@ -10,6 +10,9 @@ var SongQueue = Backbone.Collection.extend({
       }
     });
     this.on('ended', function() {
+      var updateCount = this.at(0).get('playCount') + 1;
+      this.at(0).set('playCount', updateCount);
+      // triggers change event of playCount
       this.remove(this.at(0));
       if (this.length > 0) {
         this.playFirst();
