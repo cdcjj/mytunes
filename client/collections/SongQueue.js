@@ -12,11 +12,15 @@ var SongQueue = Backbone.Collection.extend({
     this.on('ended', function() {
       this.remove(this.at(0));
       if (this.length > 0) {
+        console.log(this.at(0));
         this.playFirst();
       }
     });
     this.on('dequeue', function() {
       this.remove(this.at(0));
+    });
+    this.on('enqueue', function() {   /// <--- double check if code works later
+      this.add();
     });
   },
 

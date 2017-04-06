@@ -8,6 +8,13 @@ var PlayerView = Backbone.View.extend({
   initialize: function() {
   },
 
+  events: {
+    'ended': function() { /// <--- DOESN"T WORK FIX!!!.
+      this.trigger('ended', this);
+    }
+    // listen for audio to be "ended";
+  },
+
   setSong: function(song) {
     this.model = song;
     this.render();
@@ -19,3 +26,6 @@ var PlayerView = Backbone.View.extend({
   }
 
 });
+
+
+// <audio controls autoplay src="mp3s/08 4 Page Letter.mp3"/>
