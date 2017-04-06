@@ -42,6 +42,12 @@ describe('Songs', function() {
       expect(songs.at(0).get('title')).to.equal('Never Gonna Mock You Up');
       expect(songs.at(1).get('artist')).to.equal('BittyBacon');
     });
+    
+    it('has to retrieve data from server as an Object', function() {
+      songs = new Songs();
+      console.log(songs.get('retrieve'));
+      // expect(model.trigger).to.have.been.calledWith('ended', model);
+    });
 
   });
 });

@@ -7,6 +7,8 @@ var Songs = Backbone.Collection.extend({
       reset: true,
       success: function(response, xhr) {
         console.info('Inside success');
+        //.set('retrieve', xhr);
+        console.log(this);
       },
       error: function (errorResponse) {
         console.log(errorResponse);
