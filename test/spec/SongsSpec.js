@@ -32,7 +32,7 @@ describe('Songs', function() {
     it('should GET song data from Parse when initialized', function() {
       songs = new Songs();
       expect(requests[0].method).to.equal('GET');
-      expect(requests[0].url).to.include('http://parse.CAMPUS.hackreactor.com/mytunes/classes/songs');
+      expect(requests[0].url).to.include('http://parse.atx.hackreactor.com/mytunes/classes/songs');
     });
 
     it('should populate itself with the data returned from the Parse server', function() {
